@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 70%;
+				margin: 500px 15%;
+				position: absolute;
+				background-color: #ccc;
+			}
+			.box>div{
+				height: 300px;
+				border-bottom: 1px solid #ddd;
+				line-height: 300px;
+				text-align: center;
+				font-size: 100px;
+				color: white;
+			}
+			.lift{
+				display: none;
+				width: 50px;
+				position: fixed;
+				top: 50%;
+				transform: translate(0,-50%);
+				background-color: #FFC0CB;
+			}
+			.lift>div{
+				height: 50px;
+				border-bottom: 1px solid #fff;
+				line-height: 50px;
+				text-align: center;
+				color: white;
+			}
+			.current{
+				background-color: darkred;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="one-floor">1</div>
+			<div class="two-floor">2</div>
+			<div class="three-floor">3</div>
+		</div>
+		<div class="lift">
+			<div class="one">一楼</div>
+			<div class="two">二楼</div>
+			<div class="three">三楼</div>
+			<div class="three">返回</div>
+		</div>
+		<script>
+			$(function(){
+				toggleLift();
+				function toggleLift(){
+					if($(document).scrollTop()>=$(".one-floor").offset().top){
+						$(".lift").fadeIn();
+					} else {
+						$(".lift").fadeOut();
+					}
+				}
+				//节流阀
+				var flag=true;
+				//滚动
+				$(window).scroll(function(){
+					toggleLift();
+					if(flag){
+						$(".box>div").each(function(i,e){
+							if($(document).scrollTop()>=$(e).offset().top){
+								$(".lift>div").eq(i).addClass("current").siblings().removeClass("current");
+							}
+						})
+					}
+				})
+				$(".lift>div").click(function(){
+					flag=false;
+					$(this).addClass("current").siblings().removeClass("current");
+					var floor=$(this).index();
+					if($(".box>div").eq(floor).length){
+						var top=$(".box>div").eq(floor).offset().top;
+						$("html,body").stop().animate({
+							scrollTop:top
+						},function(){flag=true;})
+					}else{
+						$("html,body").stop().animate({
+							scrollTop:0
+						},function(){flag=true;})
+					}
+				})
+			})
+		</script>
+	</body>
+</html>

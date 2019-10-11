@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+		<style>
+			/*div{
+				width: 200px;
+				height: 200px;
+				margin: 100px;
+				padding: 50px;
+				border: 1px solid #DDDDDD;
+			}*/
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.father{
+				width: 300px;
+				height: 900px;
+				margin: 150px;
+				background-color: #ccc;
+				position: relative;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background-color: #ddd;
+				margin: 10px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+		<script type="text/javascript">
+			/*$(function(){
+				console.log($("div").width());//只是width
+				console.log($("div").innerWidth())//包含padding
+				console.log($("div").outerWidth());//包含padding、border
+				console.log($("div").outerWidth(true));//包含padding、border、margin
+			})*/
+			$(function(){
+				console.log($(".father").offset());
+				console.log($(".father").offset().top);
+				console.log($(".father").offset().left);
+				$(".son").offset({
+					top: 200,
+					left: 200
+				})
+				console.log($(".son").position())
+				$(window).scroll(function(){
+					console.log($(document).scrollTop());
+				})
+			})
+		</script>
+	</body>
+</html>

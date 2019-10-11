@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+	</head>
+	<body>
+		<a href="http://baidu.com" title="aa">aa</a>
+		<input type="checkbox" name="" id="" checked />
+		<div index="1" data-index="2"></div>
+		<script>
+			$(function(){
+				/*console.log($('a').prop('href'));*/
+				$("a").prop("title","都挺好");
+				$("input").change(function(){
+					console.log($(this).prop("checked"));
+				})
+				/*console.log($("div").prop("index"));*/
+				console.log($("div").attr("index"));
+				$("div").data("uname","andy");
+				console.log($("div").data("uname"));
+				console.log($("div").data("index"));
+			})
+		</script>
+	</body>
+</html>

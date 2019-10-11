@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div class="first">1</div>
+		<div class="second">2</div>
+		<div class="third">3</div>
+		<script>
+			$(function(){
+				var arr=["red","green","blue"]
+				$("div").each(function(index,domEle){
+					console.log(index);
+					console.log($(domEle).css("color",arr[index]));
+				})
+				var span=$("<span>添加span</span>");
+				$(".second").append(span);
+				var div=$("<div>添加div</div>");
+				$(".first").prepend(div);
+				$(".third").after(div);
+				$(".third").before(div);
+				/*$(".second").remove();*/
+				$(".second").empty();
+			})
+		</script>
+	</body>
+</html>

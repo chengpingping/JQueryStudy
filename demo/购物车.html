@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			ul{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+				color: black;
+			}
+			.box{
+				margin: 100px;
+			}
+			.cart-thead{
+				width: 600px;
+				height: 30px;
+				position: relative;
+			}
+			.cart-thead>.items{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				display: flex;
+				background-color: #FFC0CB;
+			}
+			.cart-thead>.items>.item{
+				width: 100%;
+				height: 100%;
+				flex: 7;
+				margin: auto;
+				display: flex;
+			}
+			.cart-thead>.items>.item>div{
+				flex: 1;
+				text-align: center;
+				border-left: 1px solid #ddd;
+			}
+			.cart-thead>.items>.all{
+				width: 100%;
+				height: 100%;
+				flex: 3;
+				margin: auto;
+				text-align: center;
+			}
+			.cart-thead>div>.checkall{
+			}
+			.goods{
+				width: 600px;
+				height: 400px;
+				position: relative;
+				/*border: 1px dashed black;*/
+			}
+			.goods>ul{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+			}
+			.goods>ul>li{
+				width: 100%;
+				height: 100px;
+				display: flex;
+				line-height: 100px;
+				box-sizing: border-box;
+				border-bottom: 1px solid #ddd;
+			}
+			.goods>ul>li>input{
+				flex: 3;
+				margin: auto;
+			}
+			.goods>ul>li>span{
+				flex: 7;
+				/*background-color: #ccc;*/
+				text-align: center;
+				display: flex;
+			}
+			.goods>ul>li>span>div{
+				flex: 1;
+				border-left: 1px solid #ddd;
+			}
+			.goods>ul>li>span>div>input{
+				width: 30px;
+				text-align: center;
+			}
+			.cart-tfoot{
+				width: 600px;
+				height: 30px;
+				position: relative;
+				background-color: lightblue;
+				display: flex;
+				line-height: 30px;
+			}
+			.cart-tfoot>div{
+				flex: 1;
+				position: absolute;
+			}
+			.cart-tfoot>.left{
+				left: 10px;
+			}
+			.cart-tfoot>.right{
+				right: 0;
+			}
+			.cart-tfoot>div>div{
+				display: inline-block;
+			}
+			.cart-tfoot>div>div>em{
+				color: red;
+			}
+			.cart-tfoot>.right>.btn-area{
+				width: 80px;
+				height: 30px;
+				color: #fff;
+				background-color: red;
+				cursor: pointer;
+				text-align: center;
+			}
+			.check-cart-item{
+				background-color: #fff4e8;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="cart-thead">
+				<div class="items">
+					<div class="all">
+					<input class="checkall" type="checkbox" />全选
+					</div>
+					<div class="item">
+						<div class="t-goods">商品</div>
+						<div class="t-price">单价</div>
+						<div class="t-num">数量</div>
+						<div class="t-sum">小计</div>
+						<div class="t-action">操作</div>
+					</div>
+				</div>
+			</div>
+			<div class="goods">
+				<ul>
+					<li>
+						<input class="j-checkbox" type="checkbox" />
+						<span>
+							<div>商品1</div>
+							<div class="price">￥38.00</div>
+							<div>
+								<a href="javascript:;" class="decrement">-</a>
+								<input type="text" class="itxt" value="1" />
+								<a href="javascript:;" class="increment">+</a>
+							</div>
+							<div class="sum">￥38.00</div>
+							<div class="action"><a href="javascript:;">删除</a></div>
+						</span>
+					</li>
+					<li>
+						<input class="j-checkbox" type="checkbox" />
+						<span>
+							<div>商品2</div>
+							<div class="price">￥29.00</div>
+							<div>
+								<a href="javascript:;" class="decrement">-</a>
+								<input type="text" class="itxt" value="1" />
+								<a href="javascript:;" class="increment">+</a>
+							</div>
+							<div class="sum">￥29.00</div>
+							<div class="action"><a href="javascript:;">删除</a></div>
+						</span>
+					</li>
+					<li>
+						<input class="j-checkbox" type="checkbox" />
+						<span>
+							<div>商品3</div>
+							<div class="price">￥24.00</div>
+							<div>
+								<a href="javascript:;" class="decrement">-</a>
+								<input type="text" class="itxt" value="1" />
+								<a href="javascript:;" class="increment">+</a>
+							</div>
+							<div class="sum">￥24.00</div>
+							<div class="action"><a href="javascript:;">删除</a></div>
+						</span>
+					</li>
+					<li>
+						<input class="j-checkbox" type="checkbox" />
+						<span>
+							<div>商品4</div>
+							<div class="price">￥12.10</div>
+							<div>
+								<a href="javascript:;" class="decrement">-</a>
+								<input type="text" class="itxt" value="1" />
+								<a href="javascript:;" class="increment">+</a>
+							</div>
+							<div class="sum">￥12.10</div>
+							<div class="action"><a href="javascript:;">删除</a></div>
+						</span>
+					</li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+			<div class="cart-tfoot">
+				<div class="left">
+					<div class="all">
+						<input class="checkall" type="checkbox" />全选
+					</div>
+					<div class="delete"><a href="javascript:;">删除选中的商品</a></div>
+					<div class="clear"><a href="javascript:;">清空购物车</a></div>
+				</div>
+				<div class="right">
+					<div class="amount-sum">已选中<em>0</em>件商品</div>
+					<div class="price-sum">总价：<em>￥0.00</em></div>
+					<div class="btn-area">去结算</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(function(){
+				//产品选择
+				$(".checkall").change(function(){
+					$(".j-checkbox,.checkall").prop("checked",$(this).prop("checked"));
+					if($(this).prop("checked")){
+						$(".goods li").addClass("check-cart-item");
+					}else{
+						$(".goods li").removeClass("check-cart-item");
+					}
+				})
+				$(".j-checkbox").change(function(){
+					//添加背景颜色
+					if($(this).prop("checked")){
+						$(this).parent().addClass("check-cart-item");
+					}else{
+						$(this).parent().removeClass("check-cart-item");
+					}
+					if($(".j-checkbox:checked").length===$(".goods li").length){
+						$(".checkall").prop("checked",true);
+					}else{
+						$(".checkall").prop("checked",false);
+					}
+				})
+				//增加产品数量
+				$(".increment").click(function(){
+					var n=$(this).siblings(".itxt").val();
+					n++;
+					$(this).siblings(".itxt").val(n);
+					var p=$(this).parent().siblings(".price").html().substr(1);
+					$(this).parent().siblings(".sum").text('￥'+(p*n).toFixed(2));
+				})
+				$(".decrement").click(function(){
+					var n=$(this).siblings(".itxt").val();
+					if(n>1){
+						n--;
+						$(this).siblings(".itxt").val(n);
+						var p=$(this).parent().siblings(".price").html().substr(1);
+						console.log($(this));
+						$(this).parent().siblings(".sum").text('￥'+(p*n).toFixed(2));//toFixed(n)保留5位小数
+					}
+				})
+				$(".itxt").change(function(){
+					var n=$(this).val()
+					var p=$(this).parent().siblings(".price").html().substr(1);
+					$(this).parent().siblings(".sum").text('￥'+(p*n).toFixed(2));//toFixed(n)保留5位小数
+					sum();
+				})
+				//计算总件数和总额
+				function sum(){
+					var count=0;
+					var money=0;
+					$(".itxt").each(function(i,e){
+						count+=parseInt($(this).val());
+					})
+					$(".sum").each(function(i,e){
+						money+=parseFloat($(this).text().substr(1));
+					})
+					$(".amount-sum>em").text(count);
+					$(".price-sum>em").text("￥"+money.toFixed(2));
+				}
+				//删除商品
+				$(".action>a").click(function(){
+					$(this).parents("li").remove();
+				})
+				//删除选定的商品
+				$(".delete").click(function(){
+					$(".j-checkbox:checked").parents("li").remove();
+				})
+				//清空购物车
+				$(".clear").click(function(){
+					$(".goods li").remove();
+				})
+			})
+		</script>
+	</body>
+</html>

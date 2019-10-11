@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				position: absolute;
+			}
+			.body{
+				width: 80%;
+				height: 500px;
+				background-color: #ccc;
+				margin: 300px 10%;
+			}
+			.back{
+				display: none;
+				width: 25px;
+				height: 100px;
+				position: fixed;
+				right: 0;
+				line-height: 25px;
+				bottom: 50px;
+				background-color: pink;
+				text-align: center;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="body"></div>
+		<div class="back">返回顶部</div>
+		<script>
+			$(function(){
+				$(window).scroll(function(){
+					if($(document).scrollTop()>=$(".body").offset().top){
+						/*console.log("bey");*/
+						$(".back").fadeIn();
+					}else{
+						$(".back").fadeOut();
+					}
+				})
+				$(".back").click(function(){
+					/*$(document).scrollTop(0);*/
+					$("html,body").stop().animate({//必须是DOM元素做动画，不是document
+						scrollTop:0
+					})
+					$(this).fadeOut();
+				})
+			})
+		</script>
+	</body>
+</html>

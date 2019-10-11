@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: #ccc;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<button>显示</button>
+		<button>隐藏</button>
+		<button>切换</button>
+		<div></div>
+		<script>
+			$(function(){
+				$('button').eq(0).click(function(){
+					$('div').show(1000);
+				});
+				$('button').eq(1).click(function(){
+					$('div').hide(1000);
+				});
+				$('button').eq(2).click(function(){
+					$('div').toggle(1000);
+				})
+			})
+		</script>-->
+		<!--<button>上拉</button>
+		<button>下拉</button>
+		<button>切换</button>
+		<div></div>
+		<script>
+			$(function(){
+				$('button').eq(0).click(function(){
+					$('div').slideUp(1000);
+				});
+				$('button').eq(1).click(function(){
+					$('div').slideDown(1000);
+				});
+				$('button').eq(2).click(function(){
+					$('div').slideToggle(1000);
+				})
+			})
+		</script>-->
+		<button>淡入</button>
+		<button>淡出</button>
+		<button>切换</button>
+		<button>透明</button>
+		<div></div>
+		<button>动起来</button>
+		<script>
+			$(function(){
+				$('button').eq(0).click(function(){
+					$('div').fadeIn(1000);
+				});
+				$('button').eq(1).click(function(){
+					$('div').fadeOut(1000);
+				});
+				$('button').eq(2).click(function(){
+					$('div').fadeToggle(1000);
+				});
+				$('button').eq(3).click(function(){
+					$('div').fadeTo(1000,0.5);
+				});
+				$('button').eq(4).click(function(){
+					$('div').animate({
+						left:300,
+						top:500,
+						opacity:.5,
+						width:300
+					},500)
+				})
+			})
+		</script>
+	</body>
+</html>

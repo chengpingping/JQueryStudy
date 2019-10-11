@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+	</head>
+	<body>
+		<button>click</button>
+		<button>click</button>
+		<button>click</button>
+		<button>click</button>
+		<button>click</button>
+		<button>click</button>
+		<button>click</button>
+		<script>
+			$(function(){
+				$('button').click(function(){
+					/*$(this).css('background','pink');
+					$(this).siblings('button').css('background','');*/
+					$(this).css('background','pink').siblings().css('background','');
+				})
+			})
+		</script>
+	</body>
+</html>

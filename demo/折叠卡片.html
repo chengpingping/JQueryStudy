@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			.king{
+				width: 1000px;
+				position: relative;
+			}
+			.king>ul{
+				width: 100%;
+				position: absolute;
+				/*background-color: #ccc;*/
+			}
+			.king>ul>li{
+				width: 100px;
+				float: left;
+			}
+			.king>ul>li>a{
+			}
+			.king>ul>li>a>.big{
+				width: 100%;
+				display: none;
+			}
+			.king>ul>li>a>.small{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="king">
+			<ul>
+				<li>
+					<a href="javascript:;">
+						<img src="../img/a.jpeg" class="big" alt="" />
+						<img src="../img/head.jpeg" class="small" alt="" />
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="../img/b.png" class="big" alt="" />
+						<img src="../img/head.jpeg" class="small" alt="" />
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="../img/c.jpg" class="big" alt="" />
+						<img src="../img/head.jpeg" class="small" alt="" />
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="../img/d.png" class="big" alt="" />
+						<img src="../img/head.jpeg" class="small" alt="" />
+					</a>
+				</li>
+			</ul>
+		</div>
+		<script>
+			$(function(){
+				$(".king li").mouseenter(function(){
+					$(this).stop().animate({
+						width:300
+					}).find('.small').stop().hide().siblings('.big').stop().show();
+					$(this).siblings('li').animate({
+						width:100
+					}).find('.small').stop().show().siblings('.big').stop().hide();
+				})
+			})
+		</script>
+	</body>
+</html>

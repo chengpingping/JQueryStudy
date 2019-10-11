@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: #ccc;
+			}
+			.current{
+				background-color: #FFC0CB;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div><br />
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<script>
+			var ul=document.querySelector('ul');
+			ul.addEventListener('click',function(e){
+				console.log(this);
+				console.log(e.target);
+			})
+			$(function(){
+				$("div").on("mouseover mouseleave",function(){
+					$(this).toggleClass("current");
+				})
+				$("ul").on("click","li",function(e){
+					console.log(this);
+					console.log(e.target);
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+		
+	</head>
+	<body>
+		<div class="grandfather">
+			<div class="father">
+				<div class="son"></div>
+			</div>
+		</div>
+		<div class="nav">nav div</div>
+		<ol>
+			<li>ol</li>
+			<li>ol</li>
+			<li>ol</li>
+			<li>ol</li>
+		</ol>
+		<ul>
+			<li>ul</li>
+			<li>ul</li>
+			<li>ul</li>
+			<li>ul</li>
+		</ul>
+		<script>
+			$(function(){
+				console.log($('.nav'));
+				console.log($('ul li'));
+				$('ul li').css('background','pink');
+				$('ol>li:first').css('color','red');
+				$('ol>li:last').css('color','green');
+				$('ol>li:eq(2)').css('color','blue');
+				$("ul>li:even").css('color','white');
+				$('ul>li:odd').css('color','blue');
+			})
+		</script>
+	</body>
+</html>
