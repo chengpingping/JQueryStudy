@@ -203,11 +203,11 @@ out:鼠标离开时触发（相当于mouseleave）
 
 **获取属性值**
 
-	$('element').prop('属性名');
+	$('element').prop('属性名');//内置属性
 
 **设置属性值**
 
-	$('element').prop('属性名','属性值');
+	$('element').prop('属性名','属性值');//内置属性
 
 **自定义属性**
 
@@ -352,4 +352,74 @@ fn:回调函数
 	var li=$("<li>……</li>");
 	$("ol").append(li);
 
+[留言板](./demo/留言板.html)
+
+**事件解绑off()**
+
+	$("span").off();//解除span的所有事件
+	$("span").off("click");//只解除点击事件
+	$("ul").off("click","li");//解除事件委托
+
+**绑定一次事件one()**
+
+	$("element").one("event",function(){})//事件只触发一次
+
+**自动触发事件**
+
+	$("element").event();//简写
+	$("element").trigger("event");
+	$("element").triggerHandler("click");//不会触发元素的默认行为
+
 ## JQuery事件对象
+
+事件被触发就有事件对象产生
+
+	$("element").on(events,[selector],function(eventObj){})
+
+与原生中的事件对象基本一致；
+
+阻止默认行为：```event.preventDefault()```或者```return false```；
+
+阻止冒泡：```event.stopPropagation()```；
+
+# JQuery中的其他方法
+
+## JQuery拷贝对象
+
+	$.extend([deep],target,object1[,objects])
+
+deep:如果设置为true就是深拷贝，默认是false浅拷贝；
+
+target:要拷贝的目标对象；
+
+object:待拷贝的对象；
+
+**注意**
+
+目标对象中有存在的属性，则会保留，不会被拷贝的对象中的数据覆盖；
+
+浅拷贝：把原来对象中的复杂数据类型拷贝给了目标对象，修改目标对象时会影响被拷贝的对象；
+
+深拷贝：完全克隆（拷贝的是对象而不是地址），修改目标对象不会影响被拷贝的对象；
+
+## 多库共存
+
+	1.将$换成JQuery
+	2.var jq=$.noConflict();//将JQuery中的$换成jq(任意合法字符)
+
+## JQuery插件
+
+jq22
+
+JQuery之家
+
+[瀑布流](../demo/瀑布流.html)
+[懒加载](../demo/懒加载.html)
+
+# BootStrap
+
+bootstrap框架也是依赖于JQuery开发的；
+
+***
+
+[例子：记事本toDoList](./demo/toDoList.html)

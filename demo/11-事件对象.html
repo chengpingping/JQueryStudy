@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			$(function(){
+				$(document).click(function(e){
+					console.log("点击了document");
+				})
+				$("div").click(function(e){
+					e.stopPropagation();
+					console.log("点击了div");
+				})
+			})
+		</script>
+	</body>
+</html>

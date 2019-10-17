@@ -23,6 +23,7 @@
 			<li>3</li>
 			<li>4</li>
 		</ul>
+		<span>1234</span>
 		<script>
 			var ul=document.querySelector('ul');
 			ul.addEventListener('click',function(e){
@@ -37,6 +38,17 @@
 					console.log(this);
 					console.log(e.target);
 				})
+				$("span").on({
+					click:function(){
+						console.log("鼠标点击了span");
+					},
+					mouseover:function(){
+						console.log("鼠标经过span");
+					}
+				})
+				$("span").off();//解除span的所有事件
+				$("span").off("click");//只解除点击事件
+				$("ul").off("click","li");//解除事件委托
 			})
 		</script>
 	</body>

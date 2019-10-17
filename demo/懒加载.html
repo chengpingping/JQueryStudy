@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+		<style>
+			img{
+	            display: block;
+	            margin: 0 auto;
+	            margin-top: 100px;
+        	}
+		</style>
+	</head>
+	<body>
+		<img data-lazy-src="../img/a.jpeg" />
+	    <img data-lazy-src="../img/b.png" />
+	    <img data-lazy-src="../img/c.jpg" />
+	    <img data-lazy-src="../img/d.png" />
+    	<script src="../js/jquery-3.4.1.min.js"></script>
+		<script src="../js/EasyLazyload.min.js"></script>
+		<script>
+			lazyLoadInit({
+		        coverColor:"white",
+		        coverDiv:"<h1>loading</h1>",
+		        offsetBottom:0,
+		        offsetTopm:0,
+		        showTime:1100,
+		        onLoadBackEnd:function(i,e){
+		            console.log("onLoadBackEnd:"+i);
+		        }
+		        ,onLoadBackStart:function(i,e){
+		            console.log("onLoadBackStart:"+i);
+		        }
+		    });
+		</script>
+	</body>
+</html>

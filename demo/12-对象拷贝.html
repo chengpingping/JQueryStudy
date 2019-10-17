@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+		<script>
+			$(function(){
+				var target={
+					id:2,
+					sex:'male'
+				};
+				var obj={
+					id:1,
+					name:'wqwew',
+					msg:{
+						age:18
+					}
+				}
+				$.extend(target, obj);
+//				$.extend(true,target, obj);
+				target.msg.age=20;
+				console.log(target);
+				console.log(obj);
+			})
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			.box{
+				width: 350px;
+				margin: 100px;
+				position: relative;
+				border: 1px solid black;
+				text-align: center;
+			}
+			.box>ul{
+				padding: 20px;
+			}
+			.box>ul>li{
+				height: 30px;
+				line-height: 30px;
+				border-top: 1px dashed #ccc;
+				display: none;
+			}
+			.box>ul>li>a{
+				float: right;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="box">
+			<span>发布</span>
+			<textarea name="" class="txt" cols="30" rows="10"></textarea>
+			<button class="btn">发布</button>
+			<ul></ul>
+		</div>
+		<script>
+			$(function(){
+				//添加留言
+				$(".btn").click(function(){
+					var li=$("<li></li>");
+					li.html($(".txt").val()+"<a href='javascript:;'>删除</a>");
+					$("ul").append(li);
+					li.slideDown();
+					$(".txt").val('');
+				})
+				//删除留言,使用事件委托的方法
+				$("ul").on("click","a",function(){
+					$(this).parent().slideUp(function(){
+						$(this).remove();
+					});
+				})
+				
+			})
+		</script>
+	</body>
+</html>
